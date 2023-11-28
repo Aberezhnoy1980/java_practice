@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-10-17T18:13:29.820413Z</date>
+  <millis>1697566409820</millis>
+  <nanos>413000</nanos>
+  <sequence>0</sequence>
+  <level>INFO</level>
+  <class>ru.aberezhnoy.Task002</class>
+  <method>WriteToFile</method>
+  <thread>1</thread>
+  <message>g/g/g/g/g/seminar002/text.txt (No such file or directory)</message>
+</record>
