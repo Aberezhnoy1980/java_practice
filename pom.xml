@@ -16,10 +16,9 @@
         <module>homework003</module>
         <module>seminar004</module>
         <module>homework004</module>
-        <module>final_test</module>
-        <module>OOPwebinar001</module>
-        <module>homework01</module>
-        <module>OOPseminar001</module>
+        <module>core_final_test</module>
+        <module>OOPWebinars</module>
+        <module>OOPSeminars</module>
     </modules>
 
     <properties>
