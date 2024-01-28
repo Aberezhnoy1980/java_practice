@@ -3,6 +3,7 @@ package ru.aberezhnoy.animals;
 import java.time.LocalDate;
 
 public class Animal {
+    protected static int animalIdx;
     protected String name;
     protected LocalDate birthDay;
     protected Illness illness;
@@ -62,6 +63,18 @@ public class Animal {
         this.hunt();
         this.eat();
         this.sleep();
+    }
+
+    public void toWalk() {
+        System.out.println(this.getType() + " walks");
+    }
+
+    public void toFly() {
+        System.out.println(this.getType() + " flies");
+    }
+
+    public void toSwim() {
+        System.out.println(this.getType() + " swims");
     }
 
     @Override

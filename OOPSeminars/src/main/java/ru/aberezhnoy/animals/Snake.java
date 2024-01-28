@@ -2,22 +2,22 @@ package ru.aberezhnoy.animals;
 
 import java.time.LocalDate;
 
-public class Dog extends Animal {
+public class Snake extends Animal {
 
     static {
-        Dog.animalIdx = 1;
+        Snake.animalIdx = 1;
     }
 
-    public Dog(String name, Illness illness, LocalDate birtDay) {
+    public Snake(String name, Illness illness, LocalDate birtDay) {
         super(name, illness, birtDay);
     }
 
-    public Dog(String name) {
-        this(name, new Illness("Fleas"), LocalDate.of(2020, 1, 1));
+    public Snake(String name) {
+        this(name, new Illness("Osteochondrosis"), LocalDate.of(2000, 6, 13));
     }
 
-    public Dog() {
-        this(String.format("Dog_#%d", animalIdx++));
+    public Snake() {
+        this(String.format("Snake_#%d", animalIdx++));
     }
 
     @Override

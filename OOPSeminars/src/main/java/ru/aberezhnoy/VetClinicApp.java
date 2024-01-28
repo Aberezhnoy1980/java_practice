@@ -1,42 +1,21 @@
 package ru.aberezhnoy;
 
-import ru.aberezhnoy.animals.Animal;
-import ru.aberezhnoy.animals.Dog;
-import ru.aberezhnoy.animals.Duck;
-import ru.aberezhnoy.animals.Illness;
+import ru.aberezhnoy.animals.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class VetClinicApp {
     public static void main(String[] args) {
-        Animal cat = new Animal("Barsik", new Illness("Bronchitis"), LocalDate.of(2023, 3, 15));
+        final ArrayList<Animal> animals = new ArrayList<>(Arrays.asList(new Duck("Donald", new Illness("Grey"), LocalDate.now(), 2), new Duck(), new Dog(), new Cat(), new Fish(), new Fish(), new Snake("Elena Anatolevna")));
 
-        Animal animal = new Animal();
-
-        cat.setIllness(new Illness("Live"));
-
-        System.out.println(cat.getName());
-        System.out.println(cat);
-        System.out.println(animal);
-
-        final Dog dog = new Dog("Sharik", new Illness("Blind"), LocalDate.of(2022, 1,10));
-
-        final Animal duck = new Duck("Donald", new Illness("Ugly"), LocalDate.now(), 2);
-
-        System.out.println(dog);
-        System.out.println(duck);
-
-        final ArrayList<Animal> animals = new ArrayList<>(List.of(dog, duck, cat));
-
-        System.out.println(animals);
-
-        animals.add(new Duck("Kesha", new Illness("Attractive"), LocalDate.now(), 7));
-
-        System.out.println(animals);
-
-        dog.lifeCycle();
-
+        for (Animal a : animals) {
+            System.out.println(a);
+            a.toWalk();
+            a.toSwim();
+            a.toFly();
+            System.out.println("-------------");
+        }
     }
 }
