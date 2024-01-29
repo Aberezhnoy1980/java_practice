@@ -1,8 +1,11 @@
 package ru.aberezhnoy.animals;
 
+import ru.aberezhnoy.animals.interfaces.Huntable;
+import ru.aberezhnoy.animals.interfaces.Walkable;
+
 import java.time.LocalDate;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements Huntable, Walkable {
 
     static {
         Cat.animalIdx = 1;
@@ -31,8 +34,17 @@ public class Cat extends Animal {
     }
 
     @Override
+    public void toEat() {
+        System.out.println("eating..");
+    }
+
+    @Override
     public String toString() {
         return String.format("Animal: %s, %s, %s, %s", this.getType(), getName(), getIllness(), getBirthDay());
     }
 
+    @Override
+    public double walk() {
+        return 7;
+    }
 }

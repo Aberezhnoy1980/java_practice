@@ -22,6 +22,11 @@ public class Duck extends Animal {
         this(String.format("Duck_#%d", animalIdx++));
     }
 
+    @Override
+    public void toEat() {
+        System.out.println("eating..");
+    }
+
     private int getWingCount() {
         return wingCount;
     }

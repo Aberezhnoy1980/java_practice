@@ -21,6 +21,11 @@ public class Fish extends Animal {
     }
 
     @Override
+    public void toEat() {
+        System.out.println("eating..");
+    }
+
+    @Override
     public void toFly() {
         System.out.println(this.getType() + " can't fly");
     }

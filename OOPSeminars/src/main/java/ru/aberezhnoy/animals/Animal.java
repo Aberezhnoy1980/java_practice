@@ -2,7 +2,7 @@ package ru.aberezhnoy.animals;
 
 import java.time.LocalDate;
 
-public class Animal {
+public abstract class Animal {
     protected static int animalIdx;
     protected String name;
     protected LocalDate birthDay;
@@ -64,6 +64,8 @@ public class Animal {
         this.eat();
         this.sleep();
     }
+
+    public abstract void toEat();
 
     public void toWalk() {
         System.out.println(this.getType() + " walks");

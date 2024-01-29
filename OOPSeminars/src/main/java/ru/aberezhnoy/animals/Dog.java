@@ -1,8 +1,10 @@
 package ru.aberezhnoy.animals;
 
+import ru.aberezhnoy.animals.interfaces.Walkable;
+
 import java.time.LocalDate;
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Walkable {
 
     static {
         Dog.animalIdx = 1;
@@ -21,6 +23,11 @@ public class Dog extends Animal {
     }
 
     @Override
+    public void toEat() {
+        System.out.println("eating..");
+    }
+
+    @Override
     public void toFly() {
         System.out.println(this.getType() + " can't fly");
     }
@@ -30,4 +37,8 @@ public class Dog extends Animal {
         return String.format("Animal: %s, %s, %s, %s", this.getType(), getName(), getIllness(), getBirthDay());
     }
 
+    @Override
+    public double walk() {
+        return 5;
+    }
 }
