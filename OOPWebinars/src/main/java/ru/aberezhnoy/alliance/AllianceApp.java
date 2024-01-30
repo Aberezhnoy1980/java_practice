@@ -1,6 +1,10 @@
 package ru.aberezhnoy.alliance;
 
-import java.awt.font.ImageGraphicAttribute;
+import ru.aberezhnoy.alliance.healers.Druid;
+import ru.aberezhnoy.alliance.healers.Priest;
+import ru.aberezhnoy.alliance.warriors.Knight;
+import ru.aberezhnoy.alliance.warriors.Magician;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -32,12 +36,48 @@ public class AllianceApp {
                     druidCount++;
                 }
                 default -> {
-                    teams.add(new Lecar());
+                    teams.add(new Knight());
                     lecarCount++;
                 }
             }
             System.out.println(teams.get(i).getInfo());
         }
         System.out.printf("magicianCount: %d priestCount: %d druidCount: %d lecarCount: %d \n\n", magicianCount, priestCount, druidCount, lecarCount);
+
+        Druid druid = new Druid();
+        Magician mag = new Magician();
+        Priest priest = new Priest();
+
+        System.out.println();
+
+//        System.out.println(mag.getInfo());
+        System.out.println(druid.getInfo());
+
+        mag.attack(druid);
+
+        System.out.println();
+//        System.out.println(mag.getInfo());
+        System.out.println(druid.getInfo());
+
+        System.out.println();
+
+        priest.healing(druid);
+
+        System.out.println(druid.getInfo());
+
+        System.out.println("----------------");
+
+        final Lord lord = new Lord();
+        final Knight knight = new Knight();
+
+        System.out.println(lord.getInfo() + "\n" + knight.getInfo());
+
+        lord.attack(knight);
+
+        System.out.println("Knight after battle: " + knight.getInfo());
+
+        lord.healing(knight);
+
+        System.out.println("Knight after healing: " + knight.getInfo());
     }
 }
