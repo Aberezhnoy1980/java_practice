@@ -52,14 +52,7 @@ public class VeterinaryClinicImpl implements VeterinaryClinic {
 
     @Override
     public Animal getPatientByName(String name) {
-        try {
-            for (Animal a : repository.getAnimals()) {
-                if (name.equals(a.getName())) return a;
-            }
-        } catch (NullPointerException e) {
-            throw new RuntimeException("Patient not found");
-        }
-        return null;
+        return repository.findAnimalByName(name);
     }
 
     @Override
@@ -99,7 +92,6 @@ public class VeterinaryClinicImpl implements VeterinaryClinic {
                 i++;
             }
         }
-//        return walkables;
     }
 
     @Override
@@ -132,10 +124,7 @@ public class VeterinaryClinicImpl implements VeterinaryClinic {
     }
 
     public Employee getEmployeeByName(String name) {
-        for (Employee e : repository.getEmployees()) {
-            if (name.equals(e.getName())) return e;
-        }
-        return null;
+        return repository.findEmployeeByName(name);
     }
 
     @Override

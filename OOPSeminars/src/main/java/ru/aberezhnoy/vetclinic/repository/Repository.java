@@ -17,4 +17,8 @@ public interface Repository {
     void addEmployee(Employee employee);
 
     void removeEmployee(Employee employee);
+
+    Animal findAnimalByName(String name);
+
+    Employee findEmployeeByName(String name);
 }

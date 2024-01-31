@@ -53,4 +53,24 @@ public class RepositoryImpl implements Repository {
     public void removeEmployee(Employee employee) {
         employees.remove(employee);
     }
+
+    @Override
+    public Employee findEmployeeByName(String name) {
+        for (Employee e : employees) {
+            if (name.equals(e.getName())) return e;
+        }
+        return null;
+    }
+
+    @Override
+    public Animal findAnimalByName(String name) {
+        try {
+            for (Animal a : animals) {
+                if (name.equals(a.getName())) return a;
+            }
+        } catch (NullPointerException e) {
+            throw new RuntimeException("Patient not found");
+        }
+        return null;
+    }
 }
