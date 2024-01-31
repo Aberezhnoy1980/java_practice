@@ -1,4 +1,4 @@
-package ru.aberezhnoy.animals;
+package ru.aberezhnoy.vetclinic.illnesses;
 
 public class Illness {
     private String title;
