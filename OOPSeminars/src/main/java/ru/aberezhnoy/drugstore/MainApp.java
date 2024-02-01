@@ -3,7 +3,11 @@ package ru.aberezhnoy.drugstore;
 import ru.aberezhnoy.drugstore.components.Penicillin;
 import ru.aberezhnoy.drugstore.components.Salt;
 import ru.aberezhnoy.drugstore.components.Water;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 
 public class MainApp {
     public static void main(String[] args) {

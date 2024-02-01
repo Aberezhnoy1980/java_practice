@@ -5,8 +5,6 @@ import ru.aberezhnoy.drugstore.components.MyIterator;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class PharmacyIterable implements Iterable<Component>, Comparable<PharmacyIterable> {
     private List<Component> components;
