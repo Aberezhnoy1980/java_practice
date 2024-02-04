@@ -1,5 +1,6 @@
-package ru.aberezhnoy.drugstore;
+package ru.aberezhnoy.drugstore.pharmacy;
 
+import ru.aberezhnoy.drugstore.components.Component;
 import ru.aberezhnoy.drugstore.components.MyIterator;
 
 import java.util.ArrayList;

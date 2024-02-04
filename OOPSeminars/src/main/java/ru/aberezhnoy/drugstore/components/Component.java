@@ -1,4 +1,4 @@
-package ru.aberezhnoy.drugstore;
+package ru.aberezhnoy.drugstore.components;
 
 public abstract class Component implements Comparable<Component> {
     private String title;
@@ -11,9 +11,17 @@ public abstract class Component implements Comparable<Component> {
         this.power = power;
     }
 
+    public int getPower() {
+        return power;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
-        return String.format("Name: %s, power: %s\n", this.title, this.power);
+        return String.format("Name: %s, power: %s", this.title, this.power);
     }
 
     @Override

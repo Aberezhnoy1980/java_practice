@@ -1,7 +1,6 @@
 package ru.aberezhnoy.drugstore.components;
 
-import ru.aberezhnoy.drugstore.Component;
-import ru.aberezhnoy.drugstore.PharmacyIterable;
+import ru.aberezhnoy.drugstore.pharmacy.PharmacyIterable;
 
 import java.util.Iterator;
 
