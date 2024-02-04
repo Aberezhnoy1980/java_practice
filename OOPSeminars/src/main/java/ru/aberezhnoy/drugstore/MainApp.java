@@ -5,6 +5,7 @@ import ru.aberezhnoy.drugstore.components.Salt;
 import ru.aberezhnoy.drugstore.components.Water;
 import ru.aberezhnoy.drugstore.pharmacy.Pharmacy;
 import ru.aberezhnoy.drugstore.pharmacy.PharmacyComparator;
+import ru.aberezhnoy.drugstore.pharmacy.Sorter;
 
 import java.util.*;
 
@@ -38,6 +39,18 @@ public class MainApp {
         getPharmaciesSortedByTotalPower(pharmacies);
 
         getPharmaciesSortedByTotalWeight(pharmacies, new PharmacyComparator());
+
+        // Можно избавиться от статики в клиентском коде, например с помощью интерфейса
+        System.out.println("\nSort via interface\n");
+
+        final Sorter sorter = ph -> {
+            Collections.sort(ph);
+            System.out.println(ph);
+        };
+
+        sorter.getPharmaciesSortedByInterPower(pharmacies);
+        sorter.getPharmaciesSortedByTotalPower(pharmacies);
+        sorter.getPharmaciesSortedByTotalWeight(pharmacies);
     }
 
     private static void getPharmaciesSortedByInterPower(List<Pharmacy> pharmacies) {
