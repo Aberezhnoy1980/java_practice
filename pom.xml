@@ -19,6 +19,7 @@
         <module>core_final_test</module>
         <module>OOPWebinars</module>
         <module>OOPSeminars</module>
+        <module>OOP-practice-notebook</module>
     </modules>
 
     <properties>
