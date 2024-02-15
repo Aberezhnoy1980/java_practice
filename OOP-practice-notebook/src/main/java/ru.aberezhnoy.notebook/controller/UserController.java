@@ -13,8 +13,20 @@ public class UserController {
         this.repository = repository;
     }
 
+    public User createUser() {
+        return repository.createUser();
+    }
+
     public void saveUser(User user) {
         repository.create(user);
+    }
+
+    public void saveAll(List<String> data) {
+        repository.saveAll(data);
+    }
+
+    public void saveAll() {
+        repository.saveAll();
     }
 
     public User readUser(Long userId) throws Exception {
@@ -33,8 +45,15 @@ public class UserController {
         repository.update(Long.parseLong(userId), update);
     }
 
+    public boolean delete(Long id) {
+        return repository.delete(id);
+    }
+
     public List<User> readAll() {
         return repository.findAll();
+    }
 
+    public List<User> showAll() {
+        return repository.getUsers();
     }
 }
