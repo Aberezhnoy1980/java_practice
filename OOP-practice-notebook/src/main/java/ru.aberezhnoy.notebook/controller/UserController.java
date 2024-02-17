@@ -5,6 +5,7 @@ import ru.aberezhnoy.notebook.model.repository.GBRepository;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class UserController {
     private final GBRepository repository;
@@ -21,23 +22,12 @@ public class UserController {
         repository.create(user);
     }
 
-    public void saveAll(List<String> data) {
-        repository.saveAll(data);
-    }
-
     public void saveAll() {
         repository.saveAll();
     }
 
-    public User readUser(Long userId) throws Exception {
-        List<User> users = repository.findAll();
-        for (User user : users) {
-            if (Objects.equals(user.getId(), userId)) {
-                return user;
-            }
-        }
-
-        throw new RuntimeException("User not found");
+    public User readUser(Long userId) {
+        return repository.findById(userId).orElseThrow(() -> new RuntimeException("User with id  " + userId + " not found"));
     }
 
     public void updateUser(String userId, User update) {
@@ -47,10 +37,6 @@ public class UserController {
 
     public boolean delete(Long id) {
         return repository.delete(id);
-    }
-
-    public List<User> readAll() {
-        return repository.findAll();
     }
 
     public List<User> showAll() {

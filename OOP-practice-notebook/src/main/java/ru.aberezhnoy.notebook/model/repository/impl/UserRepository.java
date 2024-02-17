@@ -13,12 +13,11 @@ import static ru.aberezhnoy.notebook.util.Prompt.prompt;
 
 public class UserRepository implements GBRepository {
     private final UserMapper mapper;
-    private final List<User> users;
+    private List<User> users;
 
     public UserRepository() {
         this.mapper = new UserMapper();
-        this.users = new ArrayList<>();
-//        this.users = findAll() == null ? new ArrayList<>() : findAll();
+        this.users = findAll();
     }
 
     @Override
@@ -56,6 +55,7 @@ public class UserRepository implements GBRepository {
 
     @Override
     public List<User> findAll() {
+        users = new ArrayList<>();
         List<String> lines = readAll();
         for (String line : lines) {
             users.add(mapper.toOutput(line));
@@ -74,7 +74,6 @@ public class UserRepository implements GBRepository {
     @Override
     public User create(User user) {
         user = new UserValidator().userValidate(user);
-//        List<User> users = findAll();
         long max = 0L;
         for (User u : users) {
             long id = u.getId();
@@ -85,23 +84,7 @@ public class UserRepository implements GBRepository {
         long next = max + 1;
         user.setId(next);
         users.add(user);
-//        write(users);
         return user;
-    }
-
-    @Override
-    public void saveAll(List<String> data) {
-        try (FileWriter writer = new FileWriter(DBConnector.DB_PATH, false)) {
-            for (String line : data) {
-                // запись всей строки
-                writer.write(line);
-                // запись по символам
-                writer.append('\n');
-            }
-            writer.flush();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     @Override
@@ -122,53 +105,38 @@ public class UserRepository implements GBRepository {
 
     @Override
     public Optional<User> findById(Long id) {
-        User findUser = users.stream()
+        return users.stream()
                 .filter(u -> u.getId()
                         .equals(id))
-                .findFirst().orElseThrow(() -> new RuntimeException("User not found"));
-        return Optional.of(findUser);
+                .findFirst();
     }
 
     @Override
     public Optional<User> update(Long userId, User update) {
-//        List<User> users = findAll();
-//        User editUser = users.stream()
-//                .filter(u -> u.getId()
-//                        .equals(userId))
-//                .findFirst().orElseThrow(() -> new RuntimeException("User not found"));
-        if (findById(userId).isPresent()) {
-            User editUser = findById(userId).get();
+        User editUser = findById(userId).orElseThrow(() -> new RuntimeException("User with id " + userId + " not found"));
 
-            if (!update.getFirstName().isEmpty()) {
-                editUser.setFirstName(update.getFirstName());
-            }
-            if (!update.getLastName().isEmpty()) {
-                editUser.setLastName(update.getLastName());
-            }
-            if (!update.getPhone().isEmpty()) {
-                editUser.setPhone(update.getPhone());
-            }
+        if (!update.getFirstName().isEmpty()) {
+            editUser.setFirstName(update.getFirstName());
         }
-//        write(users);
+        if (!update.getLastName().isEmpty()) {
+            editUser.setLastName(update.getLastName());
+        }
+        if (!update.getPhone().isEmpty()) {
+            editUser.setPhone(update.getPhone());
+        }
         return Optional.of(update);
     }
 
     @Override
     public boolean delete(Long id) {
-        if (findById(id).isPresent()) {
-//            users.remove(id);
-            users.remove(findById(id).get());
-//            write(users);
-            return true;
-        }
-        return false;
+        return users.remove(findById(id).orElseThrow(() -> new RuntimeException("User with id " + id + " not found")));
     }
 
-    private void write(List<User> users) {
-        List<String> lines = new ArrayList<>();
-        for (User u : users) {
-            lines.add(mapper.toInput(u));
-        }
-        saveAll(lines);
-    }
+//    private void write(List<User> users) {
+//        List<String> lines = new ArrayList<>();
+//        for (User u : users) {
+//            lines.add(mapper.toInput(u));
+//        }
+//        saveAll(lines);
+//    }
 }

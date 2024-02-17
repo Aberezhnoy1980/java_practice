@@ -8,9 +8,8 @@ import java.util.List;
 import static ru.aberezhnoy.notebook.util.DBConnector.createDB;
 
 public class ApplicationRunner {
-//    public static final List<String> HASH = new ArrayList<>();
 
-    public ApplicationRunner() {
+    private ApplicationRunner() {
         createDB();
         UserView view = new UserView();
         view.run();

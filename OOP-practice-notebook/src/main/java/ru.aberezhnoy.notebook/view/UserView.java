@@ -20,7 +20,6 @@ public class UserView {
         while (true) {
             String command = prompt("Введите команду: ").toUpperCase().trim();
             com = Commands.valueOf(command);
-//            if (com == Commands.EXIT) return;
             switch (com) {
                 case CREATE:
                     userController.saveUser(userController.createUser());
@@ -36,7 +35,7 @@ public class UserView {
                     }
                     break;
                 case LIST:
-                    System.out.println(userController.readAll());
+                    System.out.println(userController.showAll());
                     break;
                 case UPDATE:
                     String userId = prompt("Enter user id: ");
@@ -45,6 +44,7 @@ public class UserView {
                 case DELETE:
                     String deleteId = prompt("Enter user id: ");
                     userController.delete(Long.valueOf(deleteId));
+                    break;
                 case EXIT:
                     String leaveReq = prompt("Are you sure you want to leave the application? ");
                     if (leaveReq.equalsIgnoreCase("yes")) {
