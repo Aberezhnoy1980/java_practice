@@ -20,6 +20,7 @@
         <module>OOPWebinars</module>
         <module>OOPSeminars</module>
         <module>OOP-practice-notebook</module>
+        <module>OOP-practice-SOLID</module>
     </modules>
 
     <properties>
