@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Square extends Figure {
     public Square(Point point1, int side) {
-        super(side);
+        super(point1, side);
 
         Point point2 = new Point(point1.getX() + side, point1.getY());
         Point point3 = new Point(point1.getX() + side, point1.getY() + side);
@@ -15,7 +15,6 @@ public class Square extends Figure {
         points.add(point3);
         points.add(point4);
     }
-
     public List<Point> getPoints() {
         return points;
     }

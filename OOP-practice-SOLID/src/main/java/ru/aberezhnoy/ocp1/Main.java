@@ -19,7 +19,6 @@ public class Main {
             sumArea += shape.getArea();
 
         }
-
         System.out.printf("Sum of areas equals %f \n", sumArea);
     }
 }

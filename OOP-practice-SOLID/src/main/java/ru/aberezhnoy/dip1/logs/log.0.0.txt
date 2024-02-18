@@ -1,0 +1,10 @@
+февр. 17, 2024 4:11:51 AM ru.aberezhnoy.dip1.Main main
+INFO: Method main in model package started
+февр. 17, 2024 4:24:53 AM ru.aberezhnoy.dip1.Main main
+INFO: Method main in model package started
+февр. 17, 2024 4:34:15 AM ru.aberezhnoy.dip1.Main main
+INFO: Method main in model package started
+февр. 17, 2024 4:34:35 AM ru.aberezhnoy.dip1.Main main
+INFO: Method main in model package started
+февр. 19, 2024 12:07:34 AM ru.aberezhnoy.dip1.Main main
+INFO: Method main in model package started

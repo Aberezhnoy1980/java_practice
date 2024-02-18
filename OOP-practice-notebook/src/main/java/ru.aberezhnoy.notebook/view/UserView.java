@@ -2,28 +2,27 @@ package ru.aberezhnoy.notebook.view;
 
 import ru.aberezhnoy.notebook.controller.UserController;
 import ru.aberezhnoy.notebook.model.User;
+import ru.aberezhnoy.notebook.model.repository.impl.UserRepository;
 import ru.aberezhnoy.notebook.util.Commands;
 
-import java.util.Scanner;
+import static ru.aberezhnoy.notebook.util.Prompt.prompt;
 
 public class UserView {
     private final UserController userController;
 
-    public UserView(UserController userController) {
-        this.userController = userController;
+    public UserView() {
+        this.userController = new UserController(new UserRepository());
     }
 
-    public void run(){
+    public void run() {
         Commands com;
 
         while (true) {
-            String command = prompt("Введите команду: ");
+            String command = prompt("Введите команду: ").toUpperCase().trim();
             com = Commands.valueOf(command);
-            if (com == Commands.EXIT) return;
             switch (com) {
                 case CREATE:
-                    User u = createUser();
-                    userController.saveUser(u);
+                    userController.saveUser(userController.createUser());
                     break;
                 case READ:
                     String id = prompt("Идентификатор пользователя: ");
@@ -36,25 +35,31 @@ public class UserView {
                     }
                     break;
                 case LIST:
-                    System.out.println(userController.readAll());
+                    System.out.println(userController.showAll());
                     break;
                 case UPDATE:
                     String userId = prompt("Enter user id: ");
-                    userController.updateUser(userId, createUser());
+                    userController.updateUser(userId, userController.createUser());
+                    break;
+                case DELETE:
+                    String deleteId = prompt("Enter user id: ");
+                    userController.delete(Long.valueOf(deleteId));
+                    break;
+                case EXIT:
+                    String leaveReq = prompt("Are you sure you want to leave the application? ");
+                    if (leaveReq.equalsIgnoreCase("yes")) {
+                        String saveReq = prompt("Do you want to save changes? ");
+                        if (saveReq.equalsIgnoreCase("yes")) {
+                            userController.saveAll();
+                            return;
+                        }
+                        if (saveReq.equalsIgnoreCase("no")) return;
+                        else System.out.println("Please, type \"yes\" or \"no\"");
+                    }
+                    if (leaveReq.equalsIgnoreCase("no")) run();
+                    else System.out.println("Please, type \"yes\" or \"no\"");
+                    break;
             }
         }
-    }
-
-    private String prompt(String message) {
-        Scanner in = new Scanner(System.in);
-        System.out.print(message);
-        return in.nextLine();
-    }
-
-    private User createUser() {
-        String firstName = prompt("Имя: ");
-        String lastName = prompt("Фамилия: ");
-        String phone = prompt("Номер телефона: ");
-        return new User(firstName, lastName, phone);
     }
 }

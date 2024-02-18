@@ -3,7 +3,6 @@ package ru.aberezhnoy.lsp1.view;
 import ru.aberezhnoy.lsp1.shape.Quadrilateral;
 
 public class ShapeView {
-
     public ShapeView() {
     }
 

@@ -1,7 +1,8 @@
 package ru.aberezhnoy.lsp1.shape;
 
+
 public class Square implements Quadrilateral {
-    private final int side;
+    private int side;
 
     public Square(int side) {
         this.side = side;

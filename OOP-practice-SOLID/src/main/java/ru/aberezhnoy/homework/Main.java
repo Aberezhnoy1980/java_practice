@@ -22,6 +22,5 @@ public class Main {
             userHandler.getReporter().reportToDisplay(u);
             userHandler.getReporter().reportToFile(u);
         }
-
     }
 }
