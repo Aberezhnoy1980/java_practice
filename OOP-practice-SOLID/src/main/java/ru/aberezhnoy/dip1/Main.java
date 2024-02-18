@@ -7,7 +7,6 @@ import ru.aberezhnoy.dip1.model.util.ReportPrinter;
 import ru.aberezhnoy.logger.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
