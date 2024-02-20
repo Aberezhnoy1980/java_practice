@@ -1,4 +1,4 @@
-package ru.berezhnoy;
+package ru.berezhnoy.seminar001;
 
 public class Task002 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ru.berezhnoy;
+package ru.berezhnoy.seminar001;
 
 import java.io.FileInputStream;
 import java.io.IOException;
