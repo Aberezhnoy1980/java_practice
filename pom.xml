@@ -22,6 +22,7 @@
         <module>OOP-practice-notebook</module>
         <module>OOP-practice-patterns</module>
         <module>OOP-practice-SOLID</module>
+        <module>Exception</module>
     </modules>
 
     <properties>
