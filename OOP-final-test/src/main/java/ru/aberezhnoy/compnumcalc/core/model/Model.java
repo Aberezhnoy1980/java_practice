@@ -1,7 +1,7 @@
-package ru.aberezhnoy.compnumcalc.model;
+package ru.aberezhnoy.compnumcalc.core.model;
 
 public interface Model {
-    String result();
+    String getResult();
 
     void setFirstArg(ComplexNumber complexNumber);
 
