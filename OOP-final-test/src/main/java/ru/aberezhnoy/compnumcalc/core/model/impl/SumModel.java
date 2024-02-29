@@ -19,13 +19,13 @@ public class SumModel extends CalcModel {
         if (firstArgument.getImaginaryPart() + secondArgument.getImaginaryPart() == 1 || firstArgument.getImaginaryPart() + secondArgument.getImaginaryPart() == -1)
             thirdToken = "i";
         if (firstArgument.getImaginaryPart() + secondArgument.getImaginaryPart() == 0) {
-            thirdToken = " - real number";
+            thirdToken = "- real number";
             secondToken = "\b";
         }
         if (firstArgument.getRealPart() + secondArgument.getRealPart() == 0) {
             firstToken = "";
             secondToken = "\b";
-//            thirdToken = firstArgument.getImaginaryPart() + secondArgument.getImaginaryPart() + "i";
+            thirdToken = firstArgument.getImaginaryPart() + secondArgument.getImaginaryPart() + "i";
         }
         return String.format("The expression: (%s) + (%s) returns: %s %s %s", firstArgument, secondArgument, firstToken, secondToken, thirdToken);
     }

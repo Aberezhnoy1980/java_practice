@@ -18,11 +18,11 @@ public class ComplexNumber {
     private int[] getTokens() {
         tokens[0] = expression.startsWith("-") ? Integer.parseInt(expTokens[1]) * -1 : Integer.parseInt(expTokens[0]);
         if (expression.startsWith("-")) {
-            tokens[1] = Integer.parseInt(expTokens[2]);
-            if (expression.charAt(expTokens[1].length() + 2) == '-') tokens[1] = Integer.parseInt(expTokens[2]) * -1;
+            tokens[1] = expTokens.length != 4 ? 1 : Integer.parseInt(expTokens[2]);
+            if (expression.charAt(expTokens[1].length() + 2) == '-') tokens[1] = expTokens.length != 4 ? -1 : Integer.parseInt(expTokens[2]) * -1;
         } else {
-            tokens[1] = Integer.parseInt(expTokens[1]);
-            if (expression.charAt(expTokens[1].length() + 1) == '-') tokens[1] = Integer.parseInt(expTokens[1]) * -1;
+            tokens[1] = expTokens.length != 3 ? 1 : Integer.parseInt(expTokens[1]);
+            if (expression.charAt(expTokens[0].length() + 1) == '-') tokens[1] = expTokens.length != 3 ? -1 : Integer.parseInt(expTokens[1]) * -1;
         }
         return tokens;
     }
