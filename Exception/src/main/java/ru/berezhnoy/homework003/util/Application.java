@@ -1,14 +1,12 @@
 package ru.berezhnoy.homework003.util;
 
 import ru.berezhnoy.homework003.exception.*;
-import ru.berezhnoy.homework003.util.Prompt;
-import ru.berezhnoy.homework003.util.Validator;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Init {
+public class Application {
 
     public static void run() {
         String data = Prompt.prompt() + "\n";
