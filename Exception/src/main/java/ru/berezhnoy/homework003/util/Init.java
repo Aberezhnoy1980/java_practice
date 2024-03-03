@@ -1,4 +1,4 @@
-package ru.berezhnoy.homework003;
+package ru.berezhnoy.homework003.util;
 
 import ru.berezhnoy.homework003.exception.*;
 import ru.berezhnoy.homework003.util.Prompt;
