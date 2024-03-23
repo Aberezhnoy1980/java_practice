@@ -1,12 +1,9 @@
-package ru.aberezhnoy;
+package ru.aberezhnoy.util;
 
-import static ru.aberezhnoy.ConsoleHandler.prompt;
+import ru.aberezhnoy.view.View;
 
 public class Application {
-    private static final FileHandler fileHandler = new FileHandler("../../application.properties");
-
     public static void run() {
-        String text = prompt("Enter words separated by spaces");
-        fileHandler.writefile(text);
+        new View().run();
     }
 }

@@ -24,6 +24,7 @@
         <module>OOP-practice-SOLID</module>
         <module>Exception</module>
         <module>OOP-final-test</module>
+        <module>programming-block-final-test</module>
     </modules>
 
     <properties>

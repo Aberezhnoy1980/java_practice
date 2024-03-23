@@ -5,7 +5,7 @@ import ru.aberezhnoy.drugstore.pharmacy.PharmacyIterable;
 import java.util.Iterator;
 
 public class MyIterator implements Iterator<Component> {
-    private PharmacyIterable pharmacyIterable;
+    private final PharmacyIterable pharmacyIterable;
     private int idx;
 
     public MyIterator(PharmacyIterable pharmacyIterable) {
